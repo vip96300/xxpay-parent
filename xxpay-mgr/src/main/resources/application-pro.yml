@@ -1,0 +1,21 @@
+eureka:
+  instance:
+    prefer-ip-address: true
+    lease-expiration-duration-in-seconds: 15
+    lease-renewal-interval-in-seconds: 5
+  server:
+    address: 192.168.0.105:8761
+    user: xcwl
+    password: 123456
+  client:
+    enabled: true
+    service-url:
+      defaultZone: http://${eureka.server.user}:${eureka.server.password}@${eureka.server.address}/eureka
+    registry-fetch-interval-seconds: 5
+ribbon:
+  ReadTimeout: 60000
+  ServerListRefreshInterval: 5000 #\u8D1F\u8F7D\u5747\u8861\u5668\u670D\u52A1\u5217\u8868\u7F13\u5B58
+feign:
+  hystrix:
+    enabled: true
+# \u652F\u4ED8\u5B9D\u670D\u52A1\u5668\u5F02\u6B65\u901A\u77E5\u9875\u9762\u8DEF\u5F84

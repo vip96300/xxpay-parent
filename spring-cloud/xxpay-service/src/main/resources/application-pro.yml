@@ -1,0 +1,64 @@
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.0.20:3306/xcwl_b2c_payment?useUnicode=true&characterEncoding=utf-8&autoReconnect=true&useSSL=false
+    username: root
+    password: wdgdTq(Eu3sT
+    initialSize: 5    # 初始化大小
+    minIdle: 5        # 最小
+    maxActive: 20     # 最大
+    maxWait: 60000    # 获取连接等待超时的时间
+    timeBetweenEvictionRunsMillis: 60000    # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+    minEvictableIdleTimeMillis: 300000      # 配置一个连接在池中最小生存的时间，单位是毫秒
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true                    # 打开PSCache
+    maxPoolPreparedStatementPerConnectionSize: 20   # 指定每个连接上PSCache的大小
+    filters: stat,wall,log4j                        # 配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000 # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
+  rabbitmq:
+    host: 192.168.0.24
+    port: 5672
+    username: admin
+    password: xcwl2018
+eureka:
+  instance:
+    prefer-ip-address: true
+    lease-expiration-duration-in-seconds: 15
+    lease-renewal-interval-in-seconds: 5
+  server:
+    address: 192.168.0.11:8761
+    user: xcwl
+    password: 123456
+  client:
+    enabled: true
+    service-url:
+      defaultZone: http://${eureka.server.user}:${eureka.server.password}@${eureka.server.address}/eureka
+    registry-fetch-interval-seconds: 5
+ribbon:
+  ReadTimeout: 60000
+  ServerListRefreshInterval: 5000 #\u8D1F\u8F7D\u5747\u8861\u5668\u670D\u52A1\u5217\u8868\u7F13\u5B58
+feign:
+  hystrix:
+    enabled: true
+# \u652F\u4ED8\u5B9D\u670D\u52A1\u5668\u5F02\u6B65\u901A\u77E5\u9875\u9762\u8DEF\u5F84
+ali:
+  notify_url: http://119.84.73.146:8889/pay/aliPayNotifyRes.htm
+  # \u652F\u4ED8\u5B9D\u9875\u9762\u8DF3\u8F6C\u540C\u6B65\u901A\u77E5\u9875\u9762\u8DEF\u5F84(\u81EA\u884C\u914D\u7F6E)
+  return_url: http://119.84.73.146:8889
+
+# \u5FAE\u4FE1\u652F\u4ED8\u56DE\u8C03\u5730\u5740
+wx:
+  notify_url: http://119.84.73.146:8889/pay/wxPayNotifyRes.htm
+
+# \u652F\u4ED8\u8BC1\u4E66\u6839\u8DEF\u5F84
+cert:
+  root:
+    path: /home/cert
+logging:
+  file: /home/xxpay-service.log
+  level:
+    root: info

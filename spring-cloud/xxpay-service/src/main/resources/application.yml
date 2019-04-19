@@ -1,0 +1,7 @@
+server:
+  port: 8889
+spring:
+  application:
+    name: xxpay-service
+  profiles:
+     active: dev

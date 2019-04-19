@@ -1,0 +1,38 @@
+eureka:
+  instance:
+    prefer-ip-address: true
+    lease-expiration-duration-in-seconds: 15
+    lease-renewal-interval-in-seconds: 5
+  server:
+    address: 192.168.0.135:8761
+    user: xcwl
+    password: 123456
+  client:
+    enabled: true
+    service-url:
+      defaultZone: http://${eureka.server.user}:${eureka.server.password}@${eureka.server.address}/eureka
+    registry-fetch-interval-seconds: 5
+ribbon:
+  ReadTimeout: 60000
+  ServerListRefreshInterval: 5000 #负载均衡器服务列表缓存
+feign:
+  hystrix:
+    enabled: true
+  compression:
+    request:
+      enabled: true #压缩请求数据
+    response:
+      enabled: true #压缩响应数据
+hystrix:
+  command:
+    default:
+      execution:
+        timeout:
+          enabled: true
+        isolation:
+          thread:
+            timeoutInMilliseconds: 10000
+logging:
+  file: /home/xxpay-web.log
+  level:
+    root: info
