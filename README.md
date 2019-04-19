@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 >XxPay'官方技术交流群：206119456`满2000` 新群:885394559 （加群暗号：xxpay交流）。
 
 >XxPay'官方资源交流群：214196580`满500` 新群:838740906 （加群暗号：xxpay交流）。
@@ -136,3 +137,6 @@ xxpay4dubbo-service > xxpay4dubbo-web
 微信扫描下面二维码，关注官方公众号：XxPay，获取更多精彩内容。
 
 ![XxPay聚合支付公众号](http://docs.xxpay.org/uploads/201708/attach_14dc8f1fac0a36a1.jpg "XxPay公众号")
+=======
+# xxpay-parent
+>>>>>>> 5e5ff89df21ccb035f6e1e015782beaa9002d77e
