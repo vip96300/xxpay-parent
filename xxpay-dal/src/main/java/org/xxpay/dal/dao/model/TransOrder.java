@@ -1,14 +1,19 @@
 package org.xxpay.dal.dao.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.io.Serializable;
 import java.util.Date;
 
+@Entity @Table(name="t_trans_order")
 public class TransOrder implements Serializable {
     /**
      * 转账订单号
      *
      * @mbggenerated
      */
+    @Id
     private String transOrderId;
 
     /**

@@ -1,14 +1,19 @@
 package org.xxpay.dal.dao.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.io.Serializable;
 import java.util.Date;
 
+@Entity @Table(name="t_refund_order")
 public class RefundOrder implements Serializable {
     /**
      * 退款订单号
      *
      * @mbggenerated
      */
+    @Id
     private String refundOrderId;
 
     /**

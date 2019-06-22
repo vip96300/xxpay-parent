@@ -1,14 +1,19 @@
 package org.xxpay.dal.dao.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.io.Serializable;
 import java.util.Date;
 
+@Entity @Table(name="t_mch_info")
 public class MchInfo implements Serializable {
     /**
      * 商户ID
      *
      * @mbggenerated
      */
+    @Id
     private String mchId;
 
     /**

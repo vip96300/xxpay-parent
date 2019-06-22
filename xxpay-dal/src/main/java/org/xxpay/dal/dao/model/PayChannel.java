@@ -1,14 +1,19 @@
 package org.xxpay.dal.dao.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.io.Serializable;
 import java.util.Date;
 
+@Entity @Table(name="t_pay_channel")
 public class PayChannel implements Serializable {
     /**
      * 渠道主键ID
      *
      * @mbggenerated
      */
+    @Id
     private Integer id;
 
     /**

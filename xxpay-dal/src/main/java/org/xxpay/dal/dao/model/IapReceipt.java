@@ -1,14 +1,19 @@
 package org.xxpay.dal.dao.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.io.Serializable;
 import java.util.Date;
 
+@Entity @Table(name="t_iap_receipt")
 public class IapReceipt implements Serializable {
     /**
      * 支付订单号
      *
      * @mbggenerated
      */
+    @Id
     private String payOrderId;
 
     /**
